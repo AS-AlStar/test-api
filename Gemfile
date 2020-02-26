@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -26,10 +28,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.9'
   gem 'dotenv-rails', '~> 2.7.5'
+  gem 'rspec-rails', '~> 3.9'
+  gem 'rubocop', '~> 0.79.0', require: false
+  gem 'rubocop-performance', '~> 1.5.2', require: false
+  gem 'rubocop-rails', '~> 2.4', '>= 2.4.2', require: false
+  gem 'rubocop-rspec', '~> 1.37.1', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -40,4 +46,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
