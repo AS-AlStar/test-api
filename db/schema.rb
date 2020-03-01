@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_204535) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["user_ip"], name: "index_posts_on_user_ip"
   end
 
   create_table "ratings", force: :cascade do |t|
