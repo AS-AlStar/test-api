@@ -7,7 +7,7 @@ module Api
         list = Post.joins(:user)
                    .group(:user_ip)
                    .having('count(users.login) > 1')
-                   .select('user_ip, array_agg(users.login) as logins').offset(offset).limit(limit)
+                   .select('user_ip, array_agg(users.login) as logins')
         render json: UsersIpsListSerializer.new(list).serializable_hash, status: :ok
       end
     end
