@@ -27,7 +27,7 @@ class CreateRating
       Success(attributes: input[:attributes], post: post)
     else
       error = "Post not found by id: #{input.dig(:attributes, :post_id)}"
-      Failure(errors: error)
+      Failure(error)
     end
   end
 

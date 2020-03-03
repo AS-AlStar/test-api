@@ -3,5 +3,8 @@
 class CreatePostSerializer
   include FastJsonapi::ObjectSerializer
 
-  attributes :title, :description, :user_ip, :user_id
+  attributes :title, :description, :user_ip
+  attribute :login do |object|
+    object.user.login
+  end
 end

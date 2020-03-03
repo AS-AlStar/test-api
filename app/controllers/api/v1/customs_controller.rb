@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class CustomController < ApplicationController
+    class CustomsController < ApplicationController
       def users_ip_list
         list = Post.joins(:user)
                    .group(:user_ip)

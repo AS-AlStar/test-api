@@ -3,6 +3,6 @@
 class UsersIpsListSerializer
   include FastJsonapi::ObjectSerializer
 
-  attributes :id, :user_ip
+  attribute :user_ip
   attribute :logins, &:logins
 end
