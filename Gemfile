@@ -30,6 +30,7 @@ gem 'fast_jsonapi', '~> 1.5'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 2.7.5'
+  gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'faker', '~> 2.10', '>= 2.10.2'
   gem 'pry-byebug'
   gem 'rest-client', '~> 2.1'
