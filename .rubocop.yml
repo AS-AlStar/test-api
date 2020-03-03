@@ -17,6 +17,3 @@ Style/Documentation:
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context']
-
-RSpec/FilePath:
-  Enabled: false

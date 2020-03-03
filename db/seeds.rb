@@ -21,12 +21,10 @@ create_rating_params = {
   star: rand(1..5)
 }
 
-def threads(count_threads)
-  Array.new(count_threads) do
-    Thread.new do
-      yield
-    end
-  end.map(&:join)
+def threads(threads_count, &block)
+  Array.new(threads_count) do
+    Thread.new(&block)
+  end.each(&:join)
 end
 
 threads(10) { 100.times { RestClient.post CREATE_RATING_URL, create_rating_params } }
