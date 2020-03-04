@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple JSON API with Ruby on Rails framework
 
-Things you may want to cover:
+* Ruby version: 2.6.5
 
-* Ruby version
+* Rails version: 6.0.2.1
 
-* System dependencies
+* Database: Postgresql 11.7
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* How to run:
+    * bundle install
+    * rails db:create
+    * rails db:migrate
+    * rails db:seed
+    * rails s
