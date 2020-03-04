@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_204535) do
+ActiveRecord::Schema.define(version: 2020_03_04_175025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_204535) do
     t.string "login", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "posts_count", default: 0, null: false
+    t.index ["posts_count"], name: "index_users_on_posts_count"
   end
 
   add_foreign_key "posts", "users"
