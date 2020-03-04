@@ -27,6 +27,7 @@ gem 'dry-transaction', '~> 0.13.0'
 gem 'fast_jsonapi', '~> 1.5'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+gem 'will_paginate', '~> 3.3'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 2.7.5'
