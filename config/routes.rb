@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
       resources :ratings, only: [:create]
 
-      resources :custom, only: [] do
+      resources :customs, only: [] do
         collection do
           get :users_ip_list, to: 'customs#users_ip_list'
         end

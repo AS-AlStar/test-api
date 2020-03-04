@@ -4,5 +4,7 @@ class UsersIpsListSerializer
   include FastJsonapi::ObjectSerializer
 
   attribute :user_ip
-  attribute :logins, &:logins
+  attribute :logins do |object|
+    object.logins.uniq
+  end
 end
