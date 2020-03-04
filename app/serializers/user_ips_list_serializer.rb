@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersIpsListSerializer
+class UserIpsListSerializer
   include FastJsonapi::ObjectSerializer
 
   attribute :user_ip
