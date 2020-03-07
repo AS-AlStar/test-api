@@ -4,7 +4,6 @@ class CreatePost
   include Dry::Transaction
 
   step :validate_params
-  map :find_or_create_user
   map :create_post
   map :serialize_post
 
@@ -20,16 +19,17 @@ class CreatePost
     end
   end
 
-  def find_or_create_user(input)
-    user = User.find_or_create_by(login: input.dig(:user_attributes, :login))
-    input.merge(user: user)
-  end
-
   def create_post(input)
-    post = Post.new(input[:post_attributes])
-    post.user = input[:user]
-    post.save!
-    post
+    ActiveRecord::Base.transaction do
+      begin
+        user = User.find_or_create_by(login: input.dig(:user_attributes, :login))
+      rescue ActiveRecord::RecordNotUnique
+        retry
+      end
+      attributes = input[:post_attributes].merge!(user_id: user.id)
+      post = Post.create!(attributes)
+      post
+    end
   end
 
   def serialize_post(input)

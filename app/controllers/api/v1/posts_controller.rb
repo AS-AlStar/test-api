@@ -13,13 +13,8 @@ module Api
       end
 
       def index
-        result = TopPostsAction.new.call(params: params.permit(:limit)) if params[:limit]
-        # result = IndexPostService - logic for return default action :index
-        if result.success?
-          render json: result.value!, status: :ok
-        else
-          render json: { errors: result.failure }, status: :unprocessable_entity
-        end
+        result = TopPostsAction.new.call(params: params.permit(:limit))
+        render json: result, status: :ok
       end
 
       private

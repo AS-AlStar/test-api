@@ -32,13 +32,17 @@ class CreateRating
   end
 
   def create_rating(input)
-    Rating.create!(input[:attributes])
-    input
+    ActiveRecord::Base.transaction do
+      Rating.create!(input[:attributes])
+      input[:post].tap do |p|
+        p.average_rating = input[:post].ratings.average(:star).to_f.round(2)
+        p.save!
+      end
+    end
   end
 
   def average_rating(input)
-    average = Rating.where(post_id: input[:post].id).average(:star).to_f.round(2)
-    { post_id: input.dig(:attributes, :post_id), average: average }
+    { post_id: input.id, average: input.average_rating }
   end
 
   def serialize_rating(input)
